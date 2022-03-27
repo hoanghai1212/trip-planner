@@ -6,6 +6,12 @@
 /// @type List
 $text-font-stack: 'Open Sans', 'Helvetica Neue Light', 'Helvetica Neue',
   'Helvetica', 'Arial', sans-serif !default;
+  
+/// Header font size
+$header-size: 3rem;
+
+/// Header margin
+$header-margin: 1.5rem;
 
 $argent: #c0c0c0c0;
 $light-grey: #dfe6e9;
