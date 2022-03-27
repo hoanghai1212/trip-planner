@@ -2,3 +2,33 @@
 // When having several themes, this file contains everything related to the
 // default one.
 // -----------------------------------------------------------------------------
+
+body.default {
+  background-color: $white;
+  color: $nero;
+}
+
+$default: (
+  primary-button: (
+    color: $white,
+    bg: $robin-egg-blue,
+  ),
+  secondary-button: (
+    color: $black,
+    bg: $white,
+  ),
+  'form-control::placeholder': (
+    color: $medium-grey,
+  ),
+  enabled-icon: (
+    color: $robin-egg-blue,
+  ),
+  disabled-icon: (
+    color: $argent,
+  ),
+  secondary-text: (
+    color: $robin-egg-blue,
+  ),
+);
+
+@include themable(default, $default);
