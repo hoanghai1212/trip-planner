@@ -1,7 +1,61 @@
 /**
  * Basic typography style for copy text
  */
+
 body {
-  color: $text-color;
   font: normal 125% / 1.4 $text-font-stack;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.5;
+  font-weight: 700;
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+h1 {
+  font-size: $header-size;
+  margin-bottom: $header-margin;
+}
+
+h2 {
+  font-size: $header-size / 1.5;
+  margin-bottom: $header-margin / 1.5;
+}
+
+h3 {
+  font-size: $header-size / 2;
+  margin-bottom: $header-margin / 2;
+}
+
+p {
+  font-size: 1rem;
+
+  .sm {
+    font-size: 0.875rem;
+  }
+
+  .xs {
+    font-size: 0.75rem;
+  }
+
+  .bold {
+    font-weight: 700;
+  }
+
+  .semi-bold {
+    font-weight: 500;
+  }
+}
+
+button {
+  font-size: 1rem;
+  font-weight: 700;
 }
