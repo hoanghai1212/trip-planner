@@ -26,31 +26,36 @@ h1 {
 }
 
 h2 {
-  font-size: $header-size / 1.5;
-  margin-bottom: $header-margin / 1.5;
+  font-size: calc($header-size / 1.5);
+  margin-bottom: calc($header-margin / 1.5);
 }
 
 h3 {
-  font-size: $header-size / 2;
-  margin-bottom: $header-margin / 2;
+  font-size: calc($header-size / 2);
+  margin-bottom: calc($header-margin / 2);
 }
 
 p {
   font-size: 1rem;
+  line-height: 1;
 
-  .sm {
+  &.lg {
+    font-size: 1.25rem;
+  }
+
+  &.sm {
     font-size: 0.875rem;
   }
 
-  .xs {
+  &.xs {
     font-size: 0.75rem;
   }
 
-  .bold {
+  &.bold {
     font-weight: 700;
   }
 
-  .semi-bold {
+  &.semi-bold {
     font-weight: 500;
   }
 }

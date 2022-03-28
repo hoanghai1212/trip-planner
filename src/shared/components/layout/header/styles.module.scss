@@ -1,0 +1,32 @@
+@import '../../../scss/abstracts/variables';
+
+.Header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0.5rem 1rem;
+
+  & > img {
+    width: 2.5rem;
+  }
+}
+
+.Menu {
+  :global(.ant-drawer-title) {
+    display: flex;
+    align-items: center;
+
+    & > img {
+      width: 2.5rem;
+    }
+
+    & > p {
+      margin-bottom: 0;
+    }
+  }
+
+  :global(.ant-drawer-body) {
+    padding: 0;
+  }
+}

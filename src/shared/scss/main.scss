@@ -1,22 +1,23 @@
 @charset "UTF-8";
 
+// 0. ANTD
+@import 'antd/dist/antd.css';
+@import 'antd/dist/antd.variable.min.css';
+
 // 1. Configuration and helpers
 @import 'abstracts/variables', 'abstracts/functions', 'abstracts/mixins';
 
 // 2. Vendors
-@import 'vendors/normalize';
+@import 'vendors/normalize', 'vendors/antd';
 
 // 3. Base stuff
 @import 'base/base', 'base/fonts', 'base/typography', 'base/helpers';
 
-// 4. Layout-related sections
-@import 'layout/header', 'layout/footer';
-
-// 5. Components
+// 4. Components
 @import 'components/button';
 
-// 6. Page-specific styles
+// 5. Page-specific styles
 @import 'pages/home';
 
-// 7. Themes
+// 6. Themes
 @import 'themes/default';
