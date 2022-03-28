@@ -40,11 +40,9 @@
           // {s}css files
           ["^.+\\.s?css$"],
           // Hooks
-          ["^@/hooks"],
+          ["^@/app"],
           // components
-          ["^@/components"],
-          // zustand store
-          ["^@/store"],
+          ["^@/shared"],
           // Other imports
           ["^@/"],
           // relative paths up until 3 level
@@ -58,7 +56,6 @@
             "^\\.\\./\\.\\./\\.\\./?$",
             "^\\.\\./\\.\\./\\.\\.(?!/?$)"
           ],
-          ["^@/types"],
           // other that didnt fit in
           ["^"]
         ]
