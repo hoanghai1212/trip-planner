@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router';
 
 import Styles from './styles.module.scss';
 
-import LogoSVG from '@/shared/assets/logo.svg';
+import LogoSVG from '@/shared/components/svg/LogoSVG';
 import NavigationConst, {
   defaultKey,
 } from '@/shared/constants/NavigationConst';
@@ -18,15 +18,14 @@ export default function AppHeader() {
 
   return (
     <Header className={Styles.Header}>
-      <img src={LogoSVG} alt='Logo' />
+      <LogoSVG width={40} />
       <MenuOutlined onClick={showDrawer} />
       <Drawer
         className={Styles.Menu}
         width='300px'
         title={
           <Fragment>
-            <img src={LogoSVG} alt='Logo' />
-            <p className='bold lg'>JOY</p>
+            <LogoSVG width={40} />
           </Fragment>
         }
         closable={false}
