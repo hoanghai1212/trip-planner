@@ -9,6 +9,9 @@ body.default {
 }
 
 $default: (
+  primary-background: (
+    bg: $white,
+  ),
   primary-button: (
     color: $white,
     bg: $robin-egg-blue,

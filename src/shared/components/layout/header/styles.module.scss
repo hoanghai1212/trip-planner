@@ -1,4 +1,4 @@
-@import '../../../scss/abstracts/variables';
+@import '../../../scss/main';
 
 .Header {
   display: flex;
@@ -6,9 +6,21 @@
   align-items: center;
 
   padding: 0.5rem 1rem;
+
+  @include screen(lg) {
+    padding: 0.5rem 4rem;
+  }
+
+  .MenuDesktop {
+    background-color: transparent;
+    border-color: transparent;
+
+    flex: 0 0 25%;
+    justify-content: right;
+  }
 }
 
-.Menu {
+.MenuDrawer {
   :global(.ant-drawer-title) {
     display: flex;
     align-items: center;

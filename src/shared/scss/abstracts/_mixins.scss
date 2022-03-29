@@ -1,6 +1,7 @@
 // -----------------------------------------------------------------------------
 // This file contains all application-wide Sass mixins.
 // -----------------------------------------------------------------------------
+@import './variables';
 
 /// Event wrapper
 /// @author Harry Roberts
@@ -44,5 +45,17 @@
         color: map-get($map, color);
       }
     }
+  }
+}
+
+/// @param {String} $name: name of the breakpoint
+@mixin screen($name) {
+  @if map-has-key($map: $breakpoints, $key: $name) {
+    @media #{inspect(map-get($breakpoints, $name))} {
+      @content;
+    }
+  } @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+    + "Please make sure it is defined in `$breakpoints` map.";
   }
 }
