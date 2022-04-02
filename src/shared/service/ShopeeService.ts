@@ -1,3 +1,4 @@
+import { Provider } from '../constants/ProviderConst';
 import {
   IAffiliateService,
   IProduct,
@@ -12,7 +13,7 @@ export class ShopeeService implements IAffiliateService {
 
   async getProductInfo(): Promise<IProduct> {
     const product = {} as IProduct;
-    product.provider = 'shopee';
+    product.provider = Provider.Shopee;
     product.productLink = this.uri;
     try {
       const uriParts = this.uri.split('.');
