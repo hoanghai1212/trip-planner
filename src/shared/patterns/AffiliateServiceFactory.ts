@@ -8,11 +8,11 @@ export class AffiliateServiceFactory {
     const domain = uri.split('/')[2];
     switch (domain) {
       case 'tiki.vn':
-        return new TikiService();
+        return new TikiService(uri);
       case 'lazada.vn':
-        return new LazadaService();
+        return new LazadaService(uri);
       case 'shopee.vn':
-        return new ShopeeService();
+        return new ShopeeService(uri);
       default:
         throw new Error('Unknown affiliate service');
     }
