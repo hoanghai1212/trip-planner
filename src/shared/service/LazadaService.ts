@@ -4,7 +4,11 @@ import {
 } from '../interfaces/services/IAffiliateService';
 
 export class LazadaService implements IAffiliateService {
-  async getProductInfo(uri: string): Promise<IProduct> {
-    throw new Error('Method not implemented.' + uri);
+  private uri: string;
+  constructor(uri: string) {
+    this.uri = uri;
+  }
+  async getProductInfo(): Promise<IProduct> {
+    throw new Error('Method not implemented.' + this.uri);
   }
 }
