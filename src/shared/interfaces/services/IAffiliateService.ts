@@ -1,3 +1,5 @@
+import { Provider } from '@/shared/constants/ProviderConst';
+
 export interface IProduct {
   categoryId: string;
   name: string;
@@ -9,7 +11,7 @@ export interface IProduct {
   discountRate: number | null;
   image: string;
   rating: number;
-  provider: string;
+  provider: Provider;
   affiliateLink: string;
   productLink: string;
 }
