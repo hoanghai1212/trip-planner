@@ -1,5 +1,9 @@
-import { Footer } from 'antd/lib/layout/layout';
+import { Footer } from '@mantine/core';
 
 export default function AppFooter() {
-  return <Footer>Footer</Footer>;
+  return (
+    <Footer height={60} p='md'>
+      Application footer
+    </Footer>
+  );
 }

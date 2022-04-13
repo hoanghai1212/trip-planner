@@ -1,4 +1,4 @@
 export default {
   home: '/',
-  myPlans: '/my-plans',
+  dashboard: '/dashboard',
 };

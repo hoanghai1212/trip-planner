@@ -13,7 +13,7 @@
 
 - React + TS
 - State management: Zustand (https://github.com/pmndrs/zustand)
-- UI Framework: Antd + scss
+- UI Framework: Mantine + scss
 - Hosting: Vercel
 - API: React-query
 

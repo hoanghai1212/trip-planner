@@ -1,89 +1,48 @@
-import { MenuOutlined } from '@ant-design/icons';
-import { Drawer, Menu } from 'antd';
-import { Grid } from 'antd';
-import { Header } from 'antd/lib/layout/layout';
-import { Fragment, useCallback, useMemo, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router';
+import { Burger, Button, Group, Header, Text, useMantineTheme } from '@mantine/core';
+import { useNavigate } from 'react-router';
 
 import Styles from './styles.module.scss';
 
-import LogoSVG from '@/shared/components/svg/LogoSVG';
-import NavigationConst, {
-  defaultKey,
-} from '@/shared/constants/NavigationConst';
-import { classNames } from '@/shared/utils/styleUtils';
+import useAuthAdapter from '@/shared/adapters/useAuthAdapter';
+import PathnameConst from '@/shared/constants/PathnameConst';
 
-const { useBreakpoint } = Grid;
+import useLayoutAdapter from '../adapters/useLayoutAdapter';
+import LogoSVG from '../../svg/LogoSVG';
 
 export default function AppHeader() {
   const navigate = useNavigate();
-  const location = useLocation();
-  const { lg } = useBreakpoint();
-
-  const [visible, setVisible] = useState(false);
-
-  const defaultSelectedKeys = useMemo(() => {
-    return location.pathname.replace('/', '') || defaultKey;
-  }, [location.pathname]);
-
-  const renderMenuItem = useCallback(
-    () =>
-      NavigationConst.map(({ key, title, url }) => (
-        <Menu.Item key={key} onClick={() => handleNavItemClick(url)}>
-          {title}
-        </Menu.Item>
-      )),
-    [NavigationConst]
-  );
+  const theme = useMantineTheme();
+  const { navbarOpened, setNavbarOpened, openLoginModal } = useLayoutAdapter();
+  const { authenticated, userProfile, logout } = useAuthAdapter();
 
   return (
-    <Header className={classNames(Styles.Header)}>
-      <LogoSVG width={40} />
+    <Header height={80} className={Styles.Header}>
+      <Burger
+        className={Styles.Burger}
+        opened={navbarOpened}
+        onClick={() => setNavbarOpened(!navbarOpened)}
+        size='sm'
+        color={theme.colors.gray[6]}
+        mr='xl'
+      />
 
-      {!lg ? (
-        <Fragment>
-          <MenuOutlined onClick={showDrawer} />
-          <Drawer
-            className={Styles.MenuDrawer}
-            width='300px'
-            title={
-              <Fragment>
-                <LogoSVG width={40} />
-              </Fragment>
-            }
-            closable={false}
-            placement='left'
-            onClose={onClose}
-            visible={visible}
-            key='Navigation'
-          >
-            <Menu defaultSelectedKeys={[defaultSelectedKeys]} mode='inline'>
-              {renderMenuItem()}
-            </Menu>
-          </Drawer>
-        </Fragment>
+      <LogoSVG className={Styles.Logo} width={40} onClick={() => navigate(PathnameConst.home)} />
+
+      {authenticated ? (
+        <Group position='apart'>
+          <Group className={Styles.UserProfile} spacing={4}>
+            <Text>{userProfile?.email}</Text>
+            <Text weight='bold' transform='uppercase'>
+              [{userProfile?.role}]
+            </Text>
+          </Group>
+          <Button onClick={logout}>Logout</Button>
+        </Group>
       ) : (
-        <Menu
-          className={Styles.MenuDesktop}
-          defaultSelectedKeys={[defaultSelectedKeys]}
-          mode='horizontal'
-        >
-          {renderMenuItem()}
-        </Menu>
+        <Button className={Styles.LoginBtn} onClick={openLoginModal}>
+          Login
+        </Button>
       )}
     </Header>
   );
-
-  function showDrawer() {
-    setVisible(true);
-  }
-
-  function onClose() {
-    setVisible(false);
-  }
-
-  function handleNavItemClick(to: string) {
-    navigate(to);
-    setVisible(false);
-  }
 }

@@ -1,18 +1,24 @@
-import { Layout } from 'antd';
-import { Content } from 'antd/lib/layout/layout';
+import { AppShell } from '@mantine/core';
+import { Fragment } from 'react';
 import { Outlet } from 'react-router';
 
+import useLayoutAdapter from './adapters/useLayoutAdapter';
 import AppFooter from './footer';
 import AppHeader from './header';
+import AppNavBar from './navbar';
+import LoginModal from '../modal/login-modal';
 
 export default function AppLayout() {
+  const { loginModalOpened, closeLoginModal } = useLayoutAdapter();
+
   return (
-    <Layout>
-      <AppHeader />
-      <Content>
+    <Fragment>
+      <AppShell fixed navbarOffsetBreakpoint='sm' navbar={<AppNavBar />} footer={<AppFooter />} header={<AppHeader />}>
         <Outlet />
-      </Content>
-      <AppFooter />
-    </Layout>
+      </AppShell>
+
+      {/* Modal Area */}
+      <LoginModal opened={loginModalOpened} onClose={closeLoginModal} />
+    </Fragment>
   );
 }

@@ -4,33 +4,32 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
 
   padding: 0.5rem 1rem;
 
+  .Logo {
+    display: none;
+  }
+
+  .UserProfile {
+    display: none;
+  }
+
   @include screen(lg) {
     padding: 0.5rem 4rem;
-  }
 
-  .MenuDesktop {
-    background-color: transparent;
-    border-color: transparent;
-
-    flex: 0 0 25%;
-    justify-content: right;
-  }
-}
-
-.MenuDrawer {
-  :global(.ant-drawer-title) {
-    display: flex;
-    align-items: center;
-
-    & > p {
-      margin-bottom: 0;
+    .Burger {
+      display: none;
     }
-  }
 
-  :global(.ant-drawer-body) {
-    padding: 0;
+    .Logo {
+      display: block;
+      cursor: pointer;
+    }
+
+    .UserProfile {
+      display: flex;
+    }
   }
 }

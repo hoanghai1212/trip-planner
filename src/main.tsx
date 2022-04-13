@@ -1,3 +1,5 @@
+import { MantineProvider } from '@mantine/core';
+import { NotificationsProvider } from '@mantine/notifications';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
@@ -13,7 +15,11 @@ const root = container && createRoot(container);
 root?.render(
   <StrictMode>
     <BrowserRouter>
-      <App />
+      <MantineProvider theme={{ colorScheme: 'light' }}>
+        <NotificationsProvider>
+          <App />
+        </NotificationsProvider>
+      </MantineProvider>
     </BrowserRouter>
   </StrictMode>
 );

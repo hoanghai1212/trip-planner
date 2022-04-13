@@ -1,7 +1,7 @@
 import { Navigate, RouteObject } from 'react-router';
 
-import MyPlan from '@/app/my-plan';
-import Sample from '@/app/sample';
+import Dashboard from '@/app/dashboard';
+import Home from '@/app/home';
 
 import AppLayout from '../components/layout';
 import PathnameConst from '../constants/PathnameConst';
@@ -17,12 +17,12 @@ export const routes: RouteObject = {
 
     {
       path: PathnameConst.home,
-      element: <Sample />,
+      element: <Home />,
     },
 
     {
-      path: PathnameConst.myPlans,
-      element: <MyPlan />,
+      path: PathnameConst.dashboard,
+      element: <Dashboard />,
     },
   ],
 };
